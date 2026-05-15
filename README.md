@@ -57,6 +57,9 @@ learn/cpp/
 | ファイル | 内容 |
 |---|---|
 | `find_duplicate.md` | 重複検査：set / map / unordered_set / unique / カウンタ配列 |
+| `grid.md` | 2次元グリッド操作・上下左右移動・BFS距離管理 |
+| `map.md` | map / unordered_map / set の基本・カウンタ・存在確認 |
+| `coordinate.md` | 座標問題パターン：pair・距離計算・座標変換・座標圧縮 |
 
 ### メモ
 

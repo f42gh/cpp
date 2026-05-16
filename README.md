@@ -31,6 +31,7 @@ learn/cpp/
 | `diff.md` | if/else による差の判定 |
 | `if.md` | if/else if/else・switch・break・continue・goto・多重ループ脱出 |
 | `for.md` | 基本 for / 範囲 for / map 走査 / ビット全探索 / 多重ループ |
+| `do.md` | `do-while` の基本・`while` との違い・典型例 |
 | `auto.md` | `auto` / `auto&` / `const auto&` の使い分け・構造化束縛 |
 
 ### 型・数値
@@ -57,9 +58,10 @@ learn/cpp/
 | ファイル | 内容 |
 |---|---|
 | `find_duplicate.md` | 重複検査：set / map / unordered_set / unique / カウンタ配列 |
-| `grid.md` | 2次元グリッド操作・上下左右移動・BFS距離管理 |
+| `grid.md` | 2次元グリッド操作・上下左右移動・BFS・部分長方形と点対称 |
 | `map.md` | map / unordered_map / set の基本・カウンタ・存在確認 |
 | `coordinate.md` | 座標問題パターン：pair・距離計算・座標変換・座標圧縮 |
+| `grid_geometry.md` | グリッド幾何問題の設計手順・座標への落とし方 |
 
 ### メモ
 

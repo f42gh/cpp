@@ -88,3 +88,120 @@ for (int i = 0; i < n; i++) {
 ```
 
 固定サイズの2次元配列 `int A[N][M]` との違いや注意点は → [array.md](array.md)
+
+---
+
+## `[]` を何回使えるかは要素型で決まる
+
+`vector` は「中に何型を入れているか」で使い方が変わる。
+
+```cpp
+vector<int> a(5);
+```
+
+これは「`int` が 5 個入った配列」なので、
+
+```cpp
+a[i]      // int
+a[i][j]   // NG
+```
+
+`a[i]` の時点で `int` になっており、`int` にはさらに `[]` がない。
+
+一方で
+
+```cpp
+vector<string> S(5);
+```
+
+これは「`string` が 5 個入った配列」なので、
+
+```cpp
+S[i]      // string
+S[i][j]   // char
+```
+
+`S[i]` は文字列で、`string` には `[]` があるからさらに `[j]` を使える。
+
+同様に
+
+```cpp
+vector<vector<int>> g(4, vector<int>(5));
+```
+
+なら
+
+```cpp
+g[i]      // vector<int>
+g[i][j]   // int
+```
+
+になる。
+
+要するに、`[]` を何回重ねられるかは
+**次の要素型にも `[]` があるかどうか**
+で決まる。
+
+---
+
+## `vector<string>` と `vector<vector<char>>`
+
+どちらも「文字の2次元グリッド」を表せる。
+
+```cpp
+vector<string> A(H);
+for (int i = 0; i < H; i++) cin >> A[i];
+```
+
+```cpp
+vector<vector<char>> B(H, vector<char>(W));
+for (int i = 0; i < H; i++) {
+    for (int j = 0; j < W; j++) cin >> B[i][j];
+}
+```
+
+どちらも
+
+```cpp
+A[i][j]
+B[i][j]
+```
+
+でアクセスできる。
+
+違いは中身の型:
+
+- `A[i]` は `string`
+- `B[i]` は `vector<char>`
+
+競プロで `.` と `#` のような文字グリッドを読むだけなら、`vector<string>` の方が短くて書きやすい。
+文字を1文字ずつ個別に処理する場面でも普通に使える。
+
+---
+
+## ありがちな勘違い
+
+`S[i][j]` を見て「途中から勝手に2次元になった」のではない。
+
+```cpp
+vector<string> S(H);
+```
+
+は最初から
+
+- 1段目: `vector`
+- 2段目: `string`
+
+という2段構造になっている。
+
+だから
+
+```cpp
+S[i]     // i行目の文字列
+S[i][j]  // i行目 j列目の文字
+```
+
+と読める。
+
+`vector<int>` で同じことができないのは、`int` が1個の値であって、
+文字列や `vector` のように中にさらに要素を持っていないから。
